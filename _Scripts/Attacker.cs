@@ -12,16 +12,16 @@ private Animator animator;
 
 	
 	void Start ()
-    {
-		animator = GetComponent<Animator>();
-	}
+    	{
+	   animator = GetComponent<Animator>();
+    	}
 	
 	//attacker will move if no defender in view.
 	void Update () 
 	{
-		transform.Translate(Vector3.left *currentSpeed * Time.deltaTime);
-
-        if (!currentTarget) 
+	   transform.Translate(Vector3.left *currentSpeed * Time.deltaTime);
+        
+		if (!currentTarget) 
 		{
 		  animator.SetBool("Is_Attacking",false);
 		}
@@ -29,7 +29,7 @@ private Animator animator;
 
 	public void SetSpeed(float speed) 
 	{
-		currentSpeed= speed;
+	   currentSpeed= speed;
 	}
 
     //called from the animator at the time of actual attack
@@ -40,7 +40,7 @@ private Animator animator;
             Health health = currentTarget.GetComponent<Health>();
             if (health)
             {
-                health.dealDamage(damage);
+               health.dealDamage(damage);
             }
         }
     }
